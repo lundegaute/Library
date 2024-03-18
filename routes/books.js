@@ -7,6 +7,7 @@ var bookService = new BookService(db);
 var auth = require("../middleware/authenticate");
 router.use(jsend.middleware);
 
+
 router.get("/", auth.token, auth.isUser, async function (req, res, next) {
     const books = await bookService.getBooks()
 
