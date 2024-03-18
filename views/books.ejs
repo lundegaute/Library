@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+<body>
+    <%- include("./partials/navbar.ejs") %>
+    <div class="text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> # </th>
+                    <th scope="col"> Title </th>
+                    <th scope="col"> Author </th>
+                    <th scope="col"> Series </th>
+                    <th scope="col"> Genre </th>
+                    <th scope="col"> Pages </th>
+                    <th scope="col"> Published </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% books.forEach( (book) => { %>
+                    <tr>
+                        <th scope="row"> <%= book.id %></th>
+                        <td> <%= book.Title %></td>
+                        <td> <%= book.Author.Author %></td>
+                        <td> <%= book.Series %></td>
+                        <td> <%= book.Genre.Genre %></td>
+                        <td> <%= book.Pages %></td>
+                        <td> <%= book.Published %></td>
+                    </tr>
+    
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

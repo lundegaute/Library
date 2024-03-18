@@ -1,0 +1,20 @@
+[
+    {
+        "book": "The Way Of Kings",
+        "author": 1,
+        "series": "The Stormlight Archive",
+        "genre": 1,
+        "pages": 1001,
+        "published": "2010-08-31"
+        
+    },
+    {
+        "book": "Words Of Radiance",
+        "author": 1,
+        "series": "The Stormlight Archive",
+        "genre": 1,
+        "pages": 1080,
+        "published": "2014-03-04"
+    }
+
+]

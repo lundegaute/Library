@@ -2,7 +2,7 @@ module.exports = (sequelize, Sequelize) => {
 	const Book = sequelize.define(
 		'Book',
 		{
-			Name: {
+			Title: {
 				type: Sequelize.DataTypes.STRING,
 				unique: false,
 				allowNull: false,
@@ -29,11 +29,11 @@ module.exports = (sequelize, Sequelize) => {
 		}
 	);
 	Book.associate = function (models) {
-		Book.belongsTo( models.Genre, {} );
 		Book.belongsToMany(models.User, { through: models.readBook});
 		Book.belongsToMany(models.User, { through: models.toReadBook});
 		Book.belongsToMany(models.User, { through: models.favouriteBook});
-		Book.belongsTo ( models.Author, {});
+		Book.belongsTo( models.Genre, { foreignKey: {allowNull: false} } );
+		Book.belongsTo ( models.Author, { foreignKey: {allowNull: false} });
 	};
 	return Book;
 };

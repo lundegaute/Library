@@ -2,13 +2,15 @@ class UserService {
     constructor(db) {
         this.client = db.sequelize;
         this.User = db.User;
+        this.Role = db.Role;
     }
 
     async getUserByEmail(email) {
         return this.User.findOne({
             where: {
-                Email: email
-            }
+                Email: email,
+            },
+            include: [this.Role]
         })
     }
 
@@ -17,7 +19,7 @@ class UserService {
             Email: user.email,
             EncryptedPassword: user.encryptedPassword,
             Salt: user.salt,
-            Role: 2,
+            RoleId: 2,
         })
     }
 

@@ -1,8 +1,10 @@
 const crypto = require("crypto");
 
-const createEncryptedPasswordAndSalt = (password) => {
+const createEncryptedPasswordAndSalt = (password,salt) => {
     return new Promise( (resolve, reject) => {
-        const salt = crypto.randomBytes(16);
+        if ( salt === ""){
+            salt = crypto.randomBytes(16);
+        }
         crypto.pbkdf2(
             password,
             salt,

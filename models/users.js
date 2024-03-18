@@ -26,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
 		User.belongsToMany(models.Book, { through: models.readBook});
 		User.belongsToMany(models.Book, { through: models.toReadBook});
 		User.belongsToMany(models.Book, { through: models.favouriteBook});
-        User.belongsTo(models.Role, {});
+        User.belongsTo(models.Role, { allowNull: false});
 	};
 	return User;
 };

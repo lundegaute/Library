@@ -2,7 +2,7 @@ module.exports = (sequelize, Sequelize) => {
 	const Genre = sequelize.define(
 		'Genre',
 		{
-			Name: {
+			Genre: {
                 type: Sequelize.DataTypes.STRING,
                 unique: true,
                 allowNull: false,

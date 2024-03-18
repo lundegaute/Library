@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var crypto = require("crypto");
+var jwt = require("jsonwebtoken");
 var db = require("../models");
 var UserService = require("../services/userService");
 var userService = new UserService(db);
@@ -29,22 +31,29 @@ router.post("/login", async function ( req, res, next ) {
     if ( !user ) {
         return res.jsend.fail({StatusCode: 401, Results: "Invalid email"})
     }
-    
-    if ( !crypto.timingSafeEqual( checkEncryptedPassword(password), user.EncryptedPassword)) {
+    const data = await checkEncryptedPassword(password, user.Salt);
+    if ( !crypto.timingSafeEqual( data.encryptedPassword, user.EncryptedPassword)) {
         return res.jsend.fail({StatusCode: 401, Results: "Invalid password"})
-    }
-    
-    let token = jwt.sign(
-        {
-            id: user.id,
-            email: user.Email,
-            role: user.Role
-        },
-        process.env.TOKEN_SECRET,
-        {expiresIn: "2h"}
-    )
 
-    return res.jsend.success({StatusCode: 200, Results: "Login Successful"})
+    }
+
+    try {
+        let token = jwt.sign(
+            {
+                id: user.id,
+                Email: user.Email,
+                Role: user.Role.Role,
+            },
+            process.env.TOKEN_SECRET,
+            {expiresIn: "2h"}
+        )
+        res.cookie("token", token, { httpOnly: true});
+        res.render("index", {user: user.Email, title: "Express", token: token})
+    } catch (error) {
+        console.log(error)
+        return res.jsend.fail({StatusCode: 500, Results: "Error during login", error: error})
+    }
+
 })
 
 router.post("/signup", async function ( req, res, next ) {
@@ -59,8 +68,8 @@ router.post("/signup", async function ( req, res, next ) {
         return res.jsend.fail({StatusCode: 401, Results: "Invalid Email format"})
     }
 
-    // creating encrypted password and salt
-    const {encryptedPassword, salt } = await createEncryptedPassword(user.password)
+    // creating encrypted password and salt. Sending an empty salt when creating user. The function will make a new one
+    const {encryptedPassword, salt } = await createEncryptedPassword(user.password, "")
 
     user.encryptedPassword = encryptedPassword;
     user.salt = salt;
@@ -73,6 +82,12 @@ router.post("/signup", async function ( req, res, next ) {
         return res.jsend.success({StatusCode: 500, Results: "Error during user creation", Error: error})
     }
 
+})
+
+
+router.post("/logout", async function ( req, res, next ) {
+    req.user = undefined;
+    res.redirect("/");
 })
 
 

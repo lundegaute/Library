@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
 
 const auth = {
-    token: () => {
+    token: ( req, res, next ) => {
         let token;
-        if ( req.headers.authorization.split(" ")[1] ) {
+        if ( req.headers.authorization ) {
             token = req.headers.authorization.split(" ")[1];
         }
         else if ( req.cookies.token) {
@@ -24,21 +24,21 @@ const auth = {
 
     },
 
-    isAdmin: () => {
+    isAdmin: (req, res, next) => {
         if ( req.user.Role === "Admin" ) {
             next();
         } else {
             res.jsend.fail({StatusCode: 401, Results: "Unauthorized access"})
-            res.redirect("/");
+            //res.redirect("/");
         }
     },
 
-    isUser: () => {
+    isUser: (req, res, next) => {
         if ( req.user.Role === "User" || req.user.Role === "Admin" ) {
             next();
         } else {
             res.jsend.fail({StatusCode: 401, Results: "Unathorized access"});
-            res.redirect("/");
+            //res.redirect("/");
         }
     },
 }
