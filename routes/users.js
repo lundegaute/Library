@@ -16,6 +16,17 @@ router.get('/', async function(req, res, next) {
 });
 
 
+router.get("/signup", async function ( req ,res, next ) {
+
+    res.render("signup")
+})
+
+router.get("/login", async function ( req, res, next) {
+
+    res.render("login")
+})
+
+
 router.post("/login", async function ( req, res, next ) {
     const {email, password } = req.body;
     const user = await userService.getUserByEmail(email)
@@ -47,8 +58,10 @@ router.post("/login", async function ( req, res, next ) {
             process.env.TOKEN_SECRET,
             {expiresIn: "2h"}
         )
+        
         res.cookie("token", token, { httpOnly: true});
-        res.render("index", {user: user.Email, title: "Express", token: token})
+        //res.redirect("/dashboard"); // Comment out when using postman
+        return res.jsend.success({StatusCode: 200, Results: token}) // Comment out when using frontend
     } catch (error) {
         console.log(error)
         return res.jsend.fail({StatusCode: 500, Results: "Error during login", error: error})
@@ -76,17 +89,20 @@ router.post("/signup", async function ( req, res, next ) {
 
     try {
         await userService.createUser(user)
+        
+        //res.redirect("/");
         return res.jsend.success({StatusCode: 200, Results: "User created"})
     } catch (error) {
         console.log(error)
-        return res.jsend.success({StatusCode: 500, Results: "Error during user creation", Error: error})
+        return res.jsend.fail({StatusCode: 500, Results: "Error during user creation", Error: error})
     }
 
 })
 
 
 router.post("/logout", async function ( req, res, next ) {
-    req.user = undefined;
+    res.clearCookie("token")
+    console.log(req.user)
     res.redirect("/");
 })
 

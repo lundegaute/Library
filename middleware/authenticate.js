@@ -9,7 +9,9 @@ const auth = {
         else if ( req.cookies.token) {
             token = req.cookies.token
         } else {
-            return res.jsend.fail({StatusCode: 500, Results: "No token found"});
+            //return res.jsend.fail({StatusCode: 500, Results: "No token found"});
+            req.user = "";
+            next();
         }
 
         jwt.verify(token, process.env.TOKEN_SECRET, (err, decodedToken) => {

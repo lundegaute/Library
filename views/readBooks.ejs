@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>
+    <title>Book i have read</title>
 </head>
 <body>
     <%- include("./partials/navbar.ejs") %>
     <div class="container text-center">
+        <h1> Books I have read </h1>
         <table class="table">
             <thead>
                 <tr>
@@ -17,30 +18,20 @@
                     <th scope="col"> Genre </th>
                     <th scope="col"> Pages </th>
                     <th scope="col"> Published </th>
-                    <th scope="col">Have Read</th>
+                    <th scope="col"> </th>
                 </tr>
             </thead>
             <tbody>
                 <% books.forEach( (book) => { %>
                     <tr>
-                        <td> <%= book.Title %></td>
+                        <td class="text-primary"> <%= book.Title %></td>
                         <td> <%= book.Author %></td>
                         <td> <%= book.Series %></td>
                         <td> <%= book.Genre %></td>
                         <td> <%= book.Pages %></td>
                         <td> <%= book.Published %></td>
                         <td>
-                            <% 
-                            let bookIconClass = "bi bi-book"
-                            readBooks.forEach( (readBook) => {
-                                if ( readBook.Title === book.Title) {
-                                    bookIconClass = "bi bi-book-fill"
-                                    return;
-                                } 
-
-                            }) 
-                            %>
-                            <i id="bookIcon" class="<%= bookIconClass %>" onclick="addToReadBooks('<%= book.id %>')"></i>
+                            <i class="bi bi-star"></i>
                         </td>
                     </tr>
     

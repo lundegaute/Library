@@ -1,6 +1,6 @@
 class BookService {
     constructor(db) {
-        this.client = db.sequelize;
+        this.Client = db.sequelize;
         this.Book = db.Book;
         this.Genre = db.Genre;
         this.Author = db.Author;
@@ -13,14 +13,25 @@ class BookService {
         })
     }
 
+    async queryBooks() {
+        let query = `
+        SELECT books.*, Authors.Author, genres.Genre, series.Series FROM books
+        JOIN Authors ON Authors.id = books.AuthorId
+        JOIN genres ON genres.id = books.GenreId
+        JOIN series ON series.id = books.SeriesId`
+        return this.Client.query(query, {
+            type: this.Client.QueryTypes.SELECT
+        })
+    }
+
     async createBook(book){
         return this.Book.create({
             Title: book.title,
-            Series: book.series,
+            AuthorId: book.authorId,
+            SeriesId: book.series,
+            GenreId: book.genreId,
             Pages: book.pages,
             Published: book.published,
-            AuthorId: book.authorId,
-            GenreId: book.genreId,
         })
     }
 

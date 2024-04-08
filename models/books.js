@@ -4,12 +4,7 @@ module.exports = (sequelize, Sequelize) => {
 		{
 			Title: {
 				type: Sequelize.DataTypes.STRING,
-				unique: false,
-				allowNull: false,
-			},
-			Series: {
-				type: Sequelize.DataTypes.STRING,
-				unique: false,
+				unique: true,
 				allowNull: false,
 			},
 			Pages: {
@@ -32,8 +27,9 @@ module.exports = (sequelize, Sequelize) => {
 		Book.belongsToMany(models.User, { through: models.readBook});
 		Book.belongsToMany(models.User, { through: models.toReadBook});
 		Book.belongsToMany(models.User, { through: models.favouriteBook});
-		Book.belongsTo( models.Genre, { foreignKey: {allowNull: false} } );
-		Book.belongsTo ( models.Author, { foreignKey: {allowNull: false} });
+		Book.belongsTo( models.Genre, { foreignKey: { allowNull: false } } );
+		Book.belongsTo ( models.Author, { foreignKey: { allowNull: false } });
+		Book.belongsTo ( models.Series, { foreignKey: { allowNull: false }});
 	};
 	return Book;
 };
