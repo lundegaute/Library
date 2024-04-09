@@ -60,8 +60,8 @@ router.post("/login", async function ( req, res, next ) {
         )
         
         res.cookie("token", token, { httpOnly: true});
-        //res.redirect("/dashboard"); // Comment out when using postman
-        return res.jsend.success({StatusCode: 200, Results: token}) // Comment out when using frontend
+        res.redirect("/dashboard"); // Comment out when using postman
+        //return res.jsend.success({StatusCode: 200, Results: token}) // Comment out when using frontend
     } catch (error) {
         console.log(error)
         return res.jsend.fail({StatusCode: 500, Results: "Error during login", error: error})

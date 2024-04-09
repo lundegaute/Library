@@ -5,6 +5,7 @@ var auth = require("../middleware/authenticate");
 
 router.get("/", auth.token, async function ( req, res, next ) {
     const user = req.user;
+    console.log(user)
 
     if ( user === "" ) {
         res.redirect("/users/login");
