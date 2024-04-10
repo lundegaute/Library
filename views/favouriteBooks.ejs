@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favourite Books</title>
+</head>
+<body>
+    <%- include("./partials/navbar.ejs") %>
+    <div class="container text-center">
+        <h1> My Favourite Books </h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> Title </th>
+                    <th scope="col"> Author </th>
+                    <th scope="col"> Series </th>
+                    <th scope="col"> Genre </th>
+                    <th scope="col"> Pages </th>
+                    <th scope="col"> Published </th>
+                    <th scope="col"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% favouriteBooks.forEach( (favouriteBook) => { %>
+                    <tr>
+                        <td class="text-primary"> <%= favouriteBook.Title %></td>
+                        <td> <%= favouriteBook.Author %></td>
+                        <td> <%= favouriteBook.Series %></td>
+                        <td> <%= favouriteBook.Genre %></td>
+                        <td> <%= favouriteBook.Pages %></td>
+                        <td> <%= favouriteBook.Published %></td>
+                        <td>
+                            <i class="bi bi-star-fill" onclick="addOrRemoveToFavourites('<%= favouriteBook.BookId %>')"></i>
+                        </td>
+                    </tr>
+    
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

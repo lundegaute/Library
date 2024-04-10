@@ -5,21 +5,23 @@ var BookService = require("../services/bookService");
 var bookeService = new BookService(db);
 var ReadBookService = require("../services/readBookService");
 var readBookService = new ReadBookService(db);
+var FavouriteBookService = require("../services/favouriteBookService");
+var favouriteBookService = new FavouriteBookService(db);
 var auth = require("../middleware/authenticate");
-
 var jsend = require("jsend");
 router.use(jsend.middleware);
+
 
 // Getting all books fromt he have read list
 router.get("/", auth.token, async function ( req, res, next ) {
     let readBooks = await readBookService.queryReadBooks(req.user);
-    
+    let favouriteBooks = await  favouriteBookService.queryFavouriteBooks(req.user);
     readBooks.forEach( (book) => {
         let date = new Date(book.Published)
         book.Published = date.getFullYear();
     })
 
-    res.render("readBooks", {user: req.user, books: readBooks})
+    res.render("readBooks", {user: req.user, books: readBooks, favouriteBooks: favouriteBooks})
     //return res.jsend.success({StatusCode: 200, Results: readBooks})
 })
 

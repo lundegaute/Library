@@ -12,7 +12,4 @@ async function addToReadBooks(bookId) {
 
 }
     
-async function addToFavourites(bookId) {
-    console.log(bookId)
 
-}

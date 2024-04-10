@@ -8,6 +8,7 @@
 <body>
     <%- include("./partials/navbar.ejs") %>
     <div class="container text-center">
+        <h1> Books </h1>
         <table class="table">
             <thead>
                 <tr>
@@ -37,13 +38,11 @@
                                     bookIconClass = "bi bi-book-fill"
                                     return;
                                 } 
-
                             }) 
                             %>
-                            <i id="bookIcon" class="<%= bookIconClass %>" onclick="addToReadBooks('<%= book.id %>')"></i>
+                            <i id="bookIcon" class="<%= bookIconClass %>" style="color: green" onclick="addToReadBooks('<%= book.id %>')"></i>
                         </td>
                     </tr>
-    
                 <% }) %>
             </tbody>
         </table>

@@ -19,9 +19,10 @@ class ReadBookService {
         JOIN Authors ON Authors.id = books.AuthorId
         JOIN genres ON genres.id = books.GenreId
         JOIN series ON series.id = books.SeriesId
-        WHERE readBooks.UserId = ${user.id}`
+        WHERE readBooks.UserId = :userId`
         return this.Client.query(query, { 
             type: this.Client.QueryTypes.SELECT,
+            replacements: { userId: user.id}
         })
     }
 

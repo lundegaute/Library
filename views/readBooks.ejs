@@ -22,19 +22,27 @@
                 </tr>
             </thead>
             <tbody>
-                <% books.forEach( (book) => { %>
+                <% books.forEach( (readBook) => { %>
                     <tr>
-                        <td class="text-primary"> <%= book.Title %></td>
-                        <td> <%= book.Author %></td>
-                        <td> <%= book.Series %></td>
-                        <td> <%= book.Genre %></td>
-                        <td> <%= book.Pages %></td>
-                        <td> <%= book.Published %></td>
+                        <td class="text-primary"> <%= readBook.Title %></td>
+                        <td> <%= readBook.Author %></td>
+                        <td> <%= readBook.Series %></td>
+                        <td> <%= readBook.Genre %></td>
+                        <td> <%= readBook.Pages %></td>
+                        <td> <%= readBook.Published %></td>
                         <td>
-                            <i class="bi bi-star"></i>
+                            <% 
+                                let starIcon = "bi bi-star";
+                                favouriteBooks.forEach( (favouriteBook) => {
+                                    if ( favouriteBook.Title === readBook.Title) {
+                                        starIcon = "bi bi-star-fill";
+                                        return;
+                                    }
+                                })
+                            %>
+                            <i class="<%= starIcon %>" style="color: gold" onclick="addOrRemoveToFavourites('<%= readBook.BookId %>')"></i>
                         </td>
                     </tr>
-    
                 <% }) %>
             </tbody>
         </table>

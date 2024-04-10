@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var booksRouter = require('./routes/books');
 var authorsRouter = require('./routes/author');
 var readBooksRouter = require("./routes/readBooks")
+var favouriteBooksRouter = require("./routes/favouriteBooks")
 var readLaterRouter = require("./routes/readLater")
 var initRouter = require("./routes/init")
 
@@ -32,6 +33,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 app.use('/readBooks', readBooksRouter);
+app.use('/favouriteBooks', favouriteBooksRouter);
 app.use('/authors', authorsRouter);
 app.use('/readLater', readLaterRouter);
 app.use('/init', initRouter);
