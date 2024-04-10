@@ -11,8 +11,13 @@ var auth = require("../middleware/authenticate");
 var jsend = require("jsend");
 router.use(jsend.middleware);
 
+router.get("/onlyBooks", auth.token, async function ( req, res, next ) {
+    const readBooks = await readBookService.queryReadBooks(req.user)
+    
+    return res.jsend.success({StatusCode: 200, Results: readBooks})
+})
 
-// Getting all books fromt he have read list
+// loading page with all books from the have read list
 router.get("/", auth.token, async function ( req, res, next ) {
     let readBooks = await readBookService.queryReadBooks(req.user);
     let favouriteBooks = await  favouriteBookService.queryFavouriteBooks(req.user);

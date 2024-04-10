@@ -24,17 +24,16 @@
             <tbody>
                 <% favouriteBooks.forEach( (favouriteBook) => { %>
                     <tr>
-                        <td class="text-primary"> <%= favouriteBook.Title %></td>
+                        <td> <%= favouriteBook.Title %></td>
                         <td> <%= favouriteBook.Author %></td>
                         <td> <%= favouriteBook.Series %></td>
                         <td> <%= favouriteBook.Genre %></td>
                         <td> <%= favouriteBook.Pages %></td>
                         <td> <%= favouriteBook.Published %></td>
                         <td>
-                            <i class="bi bi-star-fill" onclick="addOrRemoveToFavourites('<%= favouriteBook.BookId %>')"></i>
+                            <i style="color: gold;" class="bi bi-star-fill" onclick="addOrRemoveToFavourites('<%= favouriteBook.BookId %>')"></i>
                         </td>
                     </tr>
-    
                 <% }) %>
             </tbody>
         </table>
