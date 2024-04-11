@@ -1,5 +1,7 @@
 var express = require("express");
 var router = express.Router();
+var fs = require("fs");
+var path = require("path");
 var db = require("../models");
 var RoleService = require("../services/roleService");
 var roleService = new RoleService(db);
@@ -18,6 +20,63 @@ router.use(jsend.middleware);
 router.get("/", async function ( req, res, next ) {
 
     return res.jsend.success({StatusCode: 200, Results: "Working"})
+})
+
+router.post("/csv", async function ( req, res, next ) {
+    const filePath = path.join(__dirname, "..", "/public/csv"); // Path to csv file with books data
+    const booksData = fs.readFileSync(path.join(filePath, "Bokliste.csv"), "utf-8"); // reading contents of csv file
+    let booksToAdd = [];
+    let listData = booksData.split("\n"); // creates a list where each element is each line
+    let keyIndex = { // Finding the index of each header
+        title: listData[0].split(",").indexOf("Bok"),
+        author: listData[0].split(",").indexOf("Forfatter"),
+        series: listData[0].split(",").indexOf("Serie"),
+        genre: listData[0].split(",").indexOf("Genre"),
+        pages: listData[0].split(",").indexOf("Antall sider"),
+        published: listData[0].split(",").indexOf("År utgitt"),
+    }
+    
+    for ( let line of listData.slice(1) ) { // Creating an object from each line, and adding it to a list
+        let bookList = line.split(",");
+        let bookObject = {
+            Title: bookList[keyIndex.title],
+            Author: bookList[keyIndex.author],
+            Series: bookList[keyIndex.series],
+            Genre: bookList[keyIndex.genre],
+            Pages: bookList[keyIndex.pages],
+            Published: bookList[keyIndex.published],
+        }
+        booksToAdd.push(bookObject);
+    }
+    console.log(booksToAdd)
+
+    // Adding authors, genre and series to database
+    for ( let book of booksToAdd) {
+        try {
+            await authorService.addAuthor(book.Author);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    for ( let book of booksToAdd) {
+        try {
+            await seriesService.addSeries(book.Series);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    for ( let book of booksToAdd) {
+        try {
+            await genreService.createGenre(book.Genre);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+
+
+
+    return res.jsend.success({StatusCode: 200, Results: booksToAdd})
 })
 
 router.post("/", async function ( req, res, next ) {

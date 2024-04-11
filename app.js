@@ -12,6 +12,7 @@ var readBooksRouter = require("./routes/readBooks")
 var favouriteBooksRouter = require("./routes/favouriteBooks")
 var readLaterRouter = require("./routes/readLater")
 var initRouter = require("./routes/init")
+var searchRouter = require("./routes/search")
 
 require("dotenv").config();
 var db = require("./models");
@@ -37,6 +38,7 @@ app.use('/favouriteBooks', favouriteBooksRouter);
 app.use('/authors', authorsRouter);
 app.use('/readLater', readLaterRouter);
 app.use('/init', initRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

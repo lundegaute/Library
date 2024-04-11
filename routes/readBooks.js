@@ -27,7 +27,7 @@ router.get("/", auth.token, async function ( req, res, next ) {
     })
 
     res.render("readBooks", {user: req.user, books: readBooks, favouriteBooks: favouriteBooks})
-    //return res.jsend.success({StatusCode: 200, Results: readBooks})
+    //return res.jsend.success({StatusCode: 200, Results: readBooks}) // If using postman
 })
 
 
@@ -49,10 +49,6 @@ router.post("/", auth.token, async function ( req, res, next ) {
     }
 
 })
-
-
-
-
 
 
 module.exports = router;
