@@ -1,9 +1,9 @@
 # About the project
-Platform/Runtime Environment: Node.js
-Framework: Express
-Programming language: Javascript
-Database: MySql
-ORM: Sequelize
+Platform/Runtime Environment: Node.js  
+Framework: Express  
+Programming language: Javascript  
+Database: MySql  
+ORM: Sequelize  
 
 
 
