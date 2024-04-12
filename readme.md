@@ -1,9 +1,10 @@
-# About the project
+# Dependencies
 Platform/Runtime Environment: Node.js  
 Framework: Express  
 Programming language: Javascript  
 Database: MySql  
 ORM: Sequelize  
+Authentication: JsonWebToken  
 
 
 
