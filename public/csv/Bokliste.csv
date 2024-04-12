@@ -3,8 +3,8 @@
 2,Before They Are Hanged,Joe Abercrombie,The First Law,Fantasy,570,juni 2018,juli 2018,2007,
 3,The Last Argument of Kings,Joe Abercrombie,The First Law,Fantasy,670,juli 2018,sep. 2018,2008,
 4,Best Served Cold,Joe Abercrombie,First Law World,Fantasy,662,sep. 2018,des. 2018,2009,
-5,Hyperion,Dan Simmons,The Hyperion Omnibus,Sci-fi,779,sep. 2018,okt. 2018,1989,
-6,The Fall of Hyperion,Dan Simmons,The Hyperion Omnibus,Sci-fi,,okt. 2018,nov. 2018,1990,
+5,Hyperion,Dan Simmons,The Hyperion Omnibus,Sci-fi,390,sep. 2018,okt. 2018,1989,
+6,The Fall of Hyperion,Dan Simmons,The Hyperion Omnibus,Sci-fi,390,okt. 2018,nov. 2018,1990,
 7,The Three-body Problem,Cixin Liu,Remembrance of Earth's Past,Sci-fi,424,17. des. 2018,24. desember 2018,2006,8
 8,The Dark Forest,Cixin Liu,Remembrance of Earth's Past,Sci-fi,550,24. des. 2018,31. desember 2018,2008,8
 9,Death's End,Cixin Liu,Remembrance of Earth's Past,Sci-fi,721,1. jan. 2019,13. jan. 2019,2010,13
@@ -16,12 +16,12 @@
 15,The Way of Kings,Brandon Sanderson,The Stormlight Archive,Fantasy,1001,3. mars 2019,18. mars 2019,2010,16
 16,Elantris,Brandon Sanderson,Elantris,Fantasy,555,19. mars 2019,22. mars 2019,2005,4
 17,Pandora's Star,Peter F. Hamilton,The Commonwealth Saga,Sci-fi,1144,23. mars 2019,4. april 2019,2004,13
-18,The Black Company,Glen Cook,The Chronicles Of The Black Company,Fantasy,704,4. apr. 2019,8. april. 2019,1984,5
-19,Shadows Linger,Glen Cook,The Chronicles Of The Black Company,Fantasy,,9. apr. 2019,13.april. 2019,1984,5
-20,The White Rose,Glen Cook,The Chronicles Of The Black Company,Fantasy,,14. apr. 2019,18. april. 2019,1985,5
+18,The Black Company,Glen Cook,The Chronicles Of The Black Company,Fantasy,234,4. apr. 2019,8. april. 2019,1984,5
+19,Shadows Linger,Glen Cook,The Chronicles Of The Black Company,Fantasy,234,9. apr. 2019,13.april. 2019,1984,5
+20,The White Rose,Glen Cook,The Chronicles Of The Black Company,Fantasy,234,14. apr. 2019,18. april. 2019,1985,5
 21,The Words of Radiance,Brandon Sanderson,The Stormlight Archive,Fantasy,1080,19. apr. 2019,27. april. 2019,2014,9
 22,Judas Unchained,Peter F. Hamilton,The Commonwealth Saga,Sci-fi,1235,27. apr. 2019,4. mai. 2019,2004,8
-23,Edgedancer,Brandon Sanderson,Stormlight Novella,Fantasy,138,4. mai 2019,6. mai. 2019,2016,3
+23,Edgedancer,Brandon Sanderson,The Stormlight Novella,Fantasy,138,4. mai 2019,6. mai. 2019,2016,3
 24,The Alloy of Law,Brandon Sanderson,Wax and Wayne series,Fantasy,325,6. mai 2019,10. mai. 2019,2011,5
 25,The Wandering Earth,Cixin Liu,The Wandering Earth,Sci-fi,447,10. mai 2019,30. mai. 2019,2013,21
 26,Oathbringer,Brandon Sanderson,The Stormlight Archive,Fantasy,1233,12. mai. 2019,4. juni. 2019,2017,24
@@ -32,9 +32,9 @@
 31,Red Country,Joe Abercrombie,First Law World,Fantasy,452,30. juli. 2019,6. august. 2019,2012,8
 32,Seveneves,Neal Stephenson,Seveneves,Sci-fi,861,8.august.2019,23.august. 2019,2015,16
 33,The Black Prism,Brent Weeks,Lightbringer,Fantasy,735,23.august.2019,02.sep.2019,2010,11
-34,The Neutronium Alchemist,Peter F. Hamilton,Night's Dawn Trilogy,Sci-fi,1259,04.sep.2019,21.sep.2019,,18
-35,The Naked God,Peter F. Hamilton,Night's Dawn Trilogy,Sci-fi,1244,21.sep.2019,6.oktober.2019,,16
-36,The Foundation,Isaac Asimov,The Foundation Trilogy,Sci-fi,,8.oktober.2019,13.oktober. 2019,1951,6
+34,The Neutronium Alchemist,Peter F. Hamilton,Night's Dawn Trilogy,Sci-fi,1259,04.sep.2019,21.sep.2019,1997,18
+35,The Naked God,Peter F. Hamilton,Night's Dawn Trilogy,Sci-fi,1244,21.sep.2019,6.oktober.2019,1999,16
+36,The Foundation,Isaac Asimov,The Foundation Trilogy,Sci-fi,255,8.oktober.2019,13.oktober. 2019,1951,6
 37,A Little Hatred,Joe Abercrombie,The First Law,Fantasy,463,14. oktober.2019,26.oktober.2019,2019,13
 38,The Lord Of The Rings,J.R.R. Tolkien,Lord Of The Rings,Fantasy,1008,27. okt. 2019,10.des.2019,1954,45
 39,The Blinding Knife,Brent Weeks,Lightbringer,Fantasy,707,10.des.2019,15.des.2019,2013,6
@@ -53,15 +53,15 @@
 52,She Is The Darkness,Glen Cook,The Return Of The Black Company,Fantasy,402,2. mars. 2020,12. mars 2020,1997,11
 53,Water sleeps,Glen Cook,The Many Deaths Of The Black Company,Fantasy,359,16. mars 2020,26. mars 2020,1999,11
 54,Soldiers live,Glen Cook,The Many Deaths Of The Black Company,Fantasy,419,28. mars. 2020,30. mars 2020,2000,3
-55,The Emperor's Soul ,Brandon Sanderson,Arcanum Unbounded,Fantasy,129,31. mars. 2020,31. mars. 2020,2012,1
-56,The Hope Of Elantris,Brandon Sanderson,Arcanum Unbounded,Fantasy,,31. mars. 2020,31. mars. 2020,2007,
-57,The Eleventh Metal,Brandon Sanderson,Arcanum Unbounded,Fantasy,192,1. april. 2020,1. april 2020,2011,1
-58,Mistborn Secret History,Brandon Sanderson,Arcanum Unbounded,Fantasy,,1. april. 2020,2. april. 2020,2016,2
+55,The Emperor's Soul ,Brandon Sanderson,Arcanum Unbounded,Fantasy,65,31. mars. 2020,31. mars. 2020,2012,1
+56,The Hope Of Elantris,Brandon Sanderson,Arcanum Unbounded,Fantasy,65,31. mars. 2020,31. mars. 2020,2007,
+57,The Eleventh Metal,Brandon Sanderson,Arcanum Unbounded,Fantasy,96,1. april. 2020,1. april 2020,2011,1
+58,Mistborn Secret History,Brandon Sanderson,Arcanum Unbounded,Fantasy,96,1. april. 2020,2. april. 2020,2016,2
 59,Shadows Of Self,Brandon Sanderson,Wax and Wayne series,Fantasy,376,2. april. 2020,4. april. 2020,2015,3
 60,The Bands Of Mourning,Brandon Sanderson,Wax and Wayne series,Fantasy,437,5. april. 2020,8. april. 2020,2016,4
-61,The Way Of Kings,Brandon Sanderson,Stormlight Archive,Fantasy,1001,10. apr. 2020,16. april. 2020,2010,7
-62,Words Of Radiance,Brandon Sanderson,Stormlight Archive,Fantasy,1080,19. april. 2020,27. april. 2020,2014,9
-63,Oathbringer,Brandon Sanderson,Stormlight Archive,Fantasy,1233,29. april. 2020,9. mai. 2020,2017,11
+61,The Way Of Kings,Brandon Sanderson,The Stormlight Archive,Fantasy,1001,10. apr. 2020,16. april. 2020,2010,7
+62,Words Of Radiance,Brandon Sanderson,The Stormlight Archive,Fantasy,1080,19. april. 2020,27. april. 2020,2014,9
+63,Oathbringer,Brandon Sanderson,The Stormlight Archive,Fantasy,1233,29. april. 2020,9. mai. 2020,2017,11
 64,Three Body Problem,Cixin Liu,Remembrance of Earth's Past,Sci-fi,424,10. mai. 2020,15. mai. 2020,2006,6
 65,The Dark Forest,Cixin Liu,Remembrance of Earth's Past,Sci-fi,550,16. mai. 2020,21. mai. 2020,2008,6
 66,The Eye Of The World,Rober Jordan,The Wheel Of Time,Fantasy,657,22. mai. 2020,26. mai. 2020,1990,5
@@ -71,7 +71,7 @@
 70,Deadhouse Gates,Steven Erikson,Malazan Book Of The Fallen,Fantasy,836,6. august. 2020,24. august. 2020,2000,19
 71,Memories Of Ice,Steven Erikson,Malazan Book Of The Fallen,Fantasy,913,25. august. 2020,13. sep. 2020,2001,20
 72,House Of Chains,Steven Erikson,Malazan Book Of The Fallen,Fantasy,1015,16. sep. 2020,5. okt. 2020,2002,20
-73,Dawnshard,Brandon Sanderson,Stormlight Novella,Fantasy,199,19. nov. 2020,21.11.2020,2020,3
-74,Rythm Of War,Brandon Sanderson,Stormlight Archive,Fantasy,,22. nov. 2020,7. des. 2020,2020,16
+73,Dawnshard,Brandon Sanderson,The Stormlight Novella,Fantasy,199,19. nov. 2020,21.11.2020,2020,3
+74,Rythm Of War,Brandon Sanderson,The Stormlight Archive,Fantasy,1217,22. nov. 2020,7. des. 2020,2020,16
 75,Salvation Lost,Peter F. Hamilton,The Salvation Sequence,Sci-fi,461,5. feb. 2021,14. feb. 2021,2019,10
-76,The Saints of Salvation,Peter F. Hamilton,The Salvation Sequence,Sci-fi,,17.feb. 2021,,2020,
+76,The Saints of Salvation,Peter F. Hamilton,The Salvation Sequence,Sci-fi,511,17.feb. 2021,,2020,

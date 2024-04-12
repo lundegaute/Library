@@ -28,7 +28,7 @@ class BookService {
         return this.Book.create({
             Title: book.title,
             AuthorId: book.authorId,
-            SeriesId: book.series,
+            SeriesId: book.seriesId,
             GenreId: book.genreId,
             Pages: book.pages,
             Published: book.published,

@@ -22,6 +22,8 @@ router.get("/", async function ( req, res, next ) {
     return res.jsend.success({StatusCode: 200, Results: "Working"})
 })
 
+
+// Filling database with books from a csv file
 router.post("/csv", async function ( req, res, next ) {
     const filePath = path.join(__dirname, "..", "/public/csv"); // Path to csv file with books data
     const booksData = fs.readFileSync(path.join(filePath, "Bokliste.csv"), "utf-8"); // reading contents of csv file
@@ -39,44 +41,76 @@ router.post("/csv", async function ( req, res, next ) {
     for ( let line of listData.slice(1) ) { // Creating an object from each line, and adding it to a list
         let bookList = line.split(",");
         let bookObject = {
-            Title: bookList[keyIndex.title],
-            Author: bookList[keyIndex.author],
-            Series: bookList[keyIndex.series],
-            Genre: bookList[keyIndex.genre],
-            Pages: bookList[keyIndex.pages],
-            Published: bookList[keyIndex.published],
+            title: bookList[keyIndex.title],
+            author: bookList[keyIndex.author],
+            series: bookList[keyIndex.series],
+            genre: bookList[keyIndex.genre],
+            pages: bookList[keyIndex.pages],
+            published: bookList[keyIndex.published],
         }
         booksToAdd.push(bookObject);
     }
-    console.log(booksToAdd)
 
     // Adding authors, genre and series to database
+    // Check later if all these can go into one for loop
     for ( let book of booksToAdd) {
         try {
-            await authorService.addAuthor(book.Author);
+            await authorService.addAuthor(book.author);
         } catch (error) {
-            console.log(error)
+            continue;
+            //throw error
         }
     }
     for ( let book of booksToAdd) {
         try {
-            await seriesService.addSeries(book.Series);
+            await seriesService.addSeries(book.series);
         } catch (error) {
-            console.log(error)
+            continue;
+            //throw error
         }
     }
     for ( let book of booksToAdd) {
         try {
-            await genreService.createGenre(book.Genre);
+            await genreService.createGenre(book.genre);
         } catch (error) {
-            console.log(error)
+            continue;
+            //throw error
         }
     }
     
+    // -------------------- Adding books to database
+    // booksToAdd
+    const authors = await authorService.getAuthors();
+    const genres = await genreService.getGenres();
+    const series = await seriesService.getSeries();
 
+    for ( let book of booksToAdd ) {
+        for ( let author of authors ) {
+            if ( book.author === author.Author) {
+                book.authorId = author.id;
+            }
+        }
+        for ( let genre of genres ) {
+            if ( book.genre === genre.Genre) {
+                book.genreId = genre.id;
+            }
+        }
+        for ( let serie of series) {
+            if ( book.series === serie.Series) {
+                book.seriesId = serie.id;
+            }
+        }
+        console.log(book)
+        try {
+            await bookService.createBook(book)
+        } catch (error) {
+            continue;
+            //throw error
+        }
 
+    }
 
-    return res.jsend.success({StatusCode: 200, Results: booksToAdd})
+    return res.jsend.success({StatusCode: 200, Results: "Books added successfully"})
 })
 
 router.post("/", async function ( req, res, next ) {
@@ -93,7 +127,7 @@ router.post("/", async function ( req, res, next ) {
     }
     
     if ( genres.length === 0 ) {
-        await genreService.createGenre("Sci-Fi")
+        await genreService.createGenre("Sci-fi")
         await genreService.createGenre("Fantasy")
         await genreService.createGenre("Non-Fiction")
         console.log("Genres added")
